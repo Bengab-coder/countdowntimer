@@ -1,0 +1,113 @@
+<Button>
+    font_size:50
+ 
+<Label>
+	font_size:50
+	color:(1,1,1,1)
+	
+<Spinner>
+    color:(1,1,1,1)
+    font_size:100
+    size_hint:(1,.8)
+    text:"0"
+    background_normal:" "
+    background_color:(0,0,0,0)
+	canvas.before:
+		Color:
+			rgba:(0,0,0,1)
+	
+		RoundedRectangle:
+			size:self.size
+			pos:self.pos
+			radius:[20]
+				   	
+<MyLayout>		
+	BoxLayout:
+		orientation:'vertical'
+		size:root.width,root.height
+		padding:20
+		spacing:10
+		
+		Label:
+			text:str(root.count)
+			font_size:100
+			canvas.before:
+			    Color:
+			    	rgba:(0,0,0,1)
+	
+			    RoundedRectangle:
+			    	size:self.size
+			    	pos:self.pos
+			    	radius:[60]
+			color:(0,1,0,1)
+			bold:True
+			italic:True
+			outline_color:(1,1,1)
+			outline_width:5
+			
+		BoxLayout:
+			orientation:"horizontal"
+			size:root.width,root.height
+			spacing:10
+			padding:10
+						
+			Spinner:
+				id:spinner_id1
+				values:['1','2','3','4','5','6','7','8','9','0']
+				on_text:root.clicked1(spinner_id1.text)
+
+				
+			Spinner:
+				id:spinner_id2
+				values:['1','2','3','4','5','6','7','8','9','0']
+				on_text:root.clicked2(spinner_id2.text)
+				
+			Label:
+				text:":"
+				size_hint:(.1,.8)
+				color:(0,0,0,1)
+				font_size:200
+					
+			Spinner:	
+				id:spinner_id3
+				values:['1','2','3','4','5','6','7','8','9','0']
+				on_text:root.clicked3(spinner_id3.text)
+				
+			Spinner:	
+				id:spinner_id4
+				values:['1','2','3','4','5','6','7','8','9','0']
+				on_text:root.clicked4(spinner_id4.text)
+				
+							 	
+		RoundedButton:
+			text:"Start"
+			on_press:root.start()	
+			
+		RoundedButton:
+			text:"Stop"
+			on_release:root.stop()
+		    
+		    	
+		RoundedButton:
+		    text:"Reset"
+		    on_release:root.reset()
+		
+		    	                
+<RoundedButton@Button>
+    background_normal:" "
+    background_color:(0,0,0,0)
+    canvas.before:
+        Color:
+            rgba:(0,0,0,1)
+	
+        RoundedRectangle:
+            size:self.size
+            pos:self.pos
+            radius:[50]
+	size_hint:(1,.5)
+	font_size:60
+	italic:True
+	outline_color:(0,1,0)
+	outline_width:5
+
+ 
